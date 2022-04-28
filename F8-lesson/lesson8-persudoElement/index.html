@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul::before {
+            content: "Xin chao";
+            display: block;
+            background-color: violet;
+        }
+        
+        ul::after {
+            content: "Tam biet";
+            display: block;
+            background-color: violet;
+        }
+        
+        li:first-child {
+            font-size: 19px;
+            color: burlywood;
+        }
+        
+        li:last-child {
+            font-size: 13px;
+            color: green;
+        }
+        
+        li::first-letter {
+            text-transform: lowercase;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>Trung</li>
+        <li>R</li>
+        <li>U</li>
+        <li>N</li>
+        <li>G</li>
+    </ul>
+</body>
+
+</html>

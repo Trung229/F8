@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+}
+
+.main {
+    width: 1200px;
+    min-height: 100vh;
+    max-width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    background-color: #333;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 48px;
+}
+
+
+/* Article */
+
+h1 {
+    line-height: 2rem;
+}
+
+article {
+    padding: 0 16px;
+    line-height: 1.6rem;
+}
+
+article img {
+    width: 640px;
+    max-width: 100%;
+    display: block;
+    margin: 32px auto;
+}
+
+.nav__overplay {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+    -webkit-animation: fadeIn ease-in 0.2s;
+}
+
+.nav__moblie {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: white;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transition: transform linear 0.2s, opacity linear 0.2s;
+    -webkit-transition: transform linear 0.2s, opacity linear 0.2s;
+    -moz-transition: transform linear 0.2s, opacity linear 0.2s;
+    -ms-transition: transform linear 0.2s, opacity linear 0.2s;
+    -o-transition: transform linear 0.2s, opacity linear 0.2s;
+    opacity: 0;
+}
+
+.nav__moblie-list {
+    margin-top: 24px;
+}
+
+.nav__moblie-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.4rem;
+    display: block;
+    padding: 8px 0px;
+}
+
+.nav__moblie-close {
+    font-size: 1.4rem;
+    color: #666;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.nav__input:checked~label {
+    display: block;
+}
+
+.nav__input:checked~.nav__moblie {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    opacity: 1;
+}
+
+input {
+    display: none;
+}
+
+
+/*mobile nav*/
+
+.nav .nav__menu .nav-bar__icon {
+    color: white;
+    width: 28px;
+    height: 28px;
+    display: none;
+}
+
+.nav__menu {
+    width: 28px;
+    height: 28px;
+}
+
+@media (max-width:1024px) {
+    .nav .nav__menu {
+        margin-left: auto;
+    }
+    .nav .nav__menu .nav-bar__icon {
+        display: block;
+    }
+    .nav__pc {
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Form = {
+            Input(){
+                return <input />;
+            },
+            Checkbox(){
+                return <input type="checkbox"/>;
+            }
+        }
+        const Button = ({title, href, onClick, data=[]}) =>{
+            let Component = 'button';
+            console.log("==>",...data);
+            const props = {};
+            if(href){
+                Component = 'a';
+                props.href = href;
+            }
+            if(onClick){
+                props.onClick = onClick;
+            }
+            return (
+                <Component {...props}>{title}</Component>    
+            )
+        }
+        const Rest = (...propsRest) =>{
+            return(
+                <Button data={propsRest}/>
+            )
+        }
+        const List = ({data, children}) =>{
+            return(
+                <ul>
+                    {data.map(children)}    
+                </ul>
+            )
+        }
+        function App({title}){
+            const type = "Input"
+            const Component = Form[type];
+            return (
+                <React.Fragment>
+                    <Component />
+                    <Rest title="Hello" content="app content"/>
+                    <Button 
+                        title="Click me" 
+                        href="youtube.com"
+                        onClick={()=>console.log("Click me")}    
+                    />
+                    <h1>{title || "Hello"}</h1>
+                    <List data={["Food","Water","Cat"]}>
+                        {(item)=> <li key={item}>{item}</li>}
+                    </List>
+                </React.Fragment>
+                )
+        }
+        ReactDOM.render(<App title=""/>, document.getElementById("root"))
+    </script>
+</body>
+
+</html>
